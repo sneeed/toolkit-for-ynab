@@ -17,7 +17,7 @@ export function filterTransactions(
       return (
         transaction.outflow !== undefined &&
         transaction.outflow !== 0 &&
-        (transaction.inflow === undefined || transaction.inflow === 0)
+        (transaction.inflow === undefined || transaction.inflow === 0) // I would like to have a checkmark to also count transactions with an inflow > 0, if they do not have the category "inflow: ready to be assigned" - otherwise deposit, short termed lended money and Amazon return shipments destroy my outflow over time graph
       );
     })
     .filter((transactionsWithoutInflow) => {
